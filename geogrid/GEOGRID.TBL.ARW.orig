@@ -4,8 +4,6 @@
 name = HGT_M
         priority = 1
         dest_type = continuous
-        df_dx=SLPX
-        df_dy=SLPY
         smooth_option = smth-desmth_special; smooth_passes=1
         fill_missing=0.
         interp_option =     30s:average_gcell(4.0)+four_pt+average_4pt
@@ -49,11 +47,14 @@ name=LANDUSEF
         interp_option =          5m:four_pt
         interp_option =         10m:four_pt
         interp_option =      default:four_pt
-        interp_option =        wur-landuse:nearest_neighbor
-	fill_missing = 7
+<<<<<<< HEAD
         rel_path= nlcd2006_9s:nlcd2006_ll_9s/
         rel_path=nlcd2006_30s:nlcd2006_ll_30s/
         rel_path= nlcd2011_9s:nlcd2011_ll_9s/
+=======
+        interp_option =        wur-landuse:nearest_neighbor
+	fill_missing = 7
+>>>>>>> 8727782... Use urban dataset with fallback to USGS
         rel_path=    nlcd2006:nlcd2006_ll_30s/
         rel_path=    ssib_10m:ssib_landuse_10m/
         rel_path=     ssib_5m:ssib_landuse_5m/
@@ -376,8 +377,8 @@ name=URB_PARAM
         dest_type=continuous
         fill_missing = 0.
         z_dim_name=num_urb_params
-        interp_option=default:average_gcell(4.0)+four_pt+average_4pt
-        abs_path=default:/home/jiska/wrfinput/myurb
+        interp_option=default:nearest_neighbor
+        rel_path=default:NUDAPT44_1km/
 ===============================
 name=IMPERV
         priority=1
@@ -397,6 +398,16 @@ name=CANFRA
         fill_missing=0.
         rel_path = default:nlcd2011_can_ll_9s/
 ===============================
+<<<<<<< HEAD
+=======
+name=URB_PARAM
+        priority=1
+        dest_type=continuous
+        fill_missing = 0.
+        z_dim_name=num_urb_params
+        interp_option=   default:average_gcell(1.0)+four_pt+search
+        abs_path=        default:/home/jiska/wrfinput/myurb
+===============================
 name=FRC_URB2D
         priority=1
         dest_type=continuous
@@ -404,3 +415,4 @@ name=FRC_URB2D
         interp_option=default:average_gcell(1.0)+four_pt
         abs_path=     default:/home/jiska/wrfinput/urbanfraction
 ===============================
+>>>>>>> 8727782... Use urban dataset with fallback to USGS
