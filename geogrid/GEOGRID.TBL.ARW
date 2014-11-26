@@ -85,6 +85,15 @@ name=SOILTEMP
         rel_path=default:soiltemp_1deg/
 ===============================
 name=SOILCTOP
+        priority=2
+        dest_type=categorical
+        z_dim_name=soil_cat
+        dominant=SCT_DOM
+        interp_option = wur-landuse:nearest_neighbor
+        wur-landuse:/home/jiska/wrfinput/soiltype_top_wur
+        rel_path= default:soiltype_top_2m/
+===============================
+name=SOILCTOP
         priority=1
         dest_type=categorical
         z_dim_name=soil_cat
