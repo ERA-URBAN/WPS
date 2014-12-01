@@ -3,7 +3,8 @@ include ../../configure.wps
 OBJS	=	plotgrids.o avg_tsfc.o calc_ecmwf_p.o elev_angle.o plotfmt.o rd_intermediate.o \
 		mod_levs.o height_ukmo.o \
 		cio.o gridinfo_module.o misc_definitions_module.o module_debug.o module_stringutil.o \
-		read_met_module.o write_met_module.o module_date_pack.o met_data_module.o constants_module.o
+		read_met_module.o write_met_module.o module_date_pack.o met_data_module.o constants_module.o \
+		write_antheat.o
 
 all:
 		clear ;
@@ -107,6 +108,11 @@ read_met_module.o: read_met_module.F met_data_module.o constants_module.o module
 write_met_module.o: write_met_module.F met_data_module.o module_debug.o misc_definitions_module.o
 
 module_date_pack.o: module_date_pack.F
+
+write_antheat.exe: write_antheat.o
+	$(SFC) -o $(@) $(LDFLAGS) write_antheat.o
+
+write_antheat.o: write_antheat.F
 
 clean:
 	$(RM) $(OBJS) *.f90 *.mod
