@@ -48,7 +48,7 @@ name=LANDUSEF
         interp_option =          2m:four_pt
         interp_option =          5m:four_pt
         interp_option =         10m:four_pt
-        interp_option =      default:four_pt
+        interp_option =      default:nearest_neighbor
         interp_option =        wur-landuse:nearest_neighbor
 	fill_missing = 7
         rel_path= nlcd2006_9s:nlcd2006_ll_9s/
@@ -65,7 +65,7 @@ name=LANDUSEF
         rel_path=          2m:landuse_2m/
         rel_path=          5m:landuse_5m/
         rel_path=         10m:landuse_10m/
-        rel_path=     default:landuse_2m/
+        rel_path=     default:landuse_30s/
         abs_path=         wur-landuse:/home/jiska/wrfinput/landuse
 ===============================
 name=LANDUSEF
@@ -85,19 +85,19 @@ name=SOILTEMP
         rel_path=default:soiltemp_1deg/
 ===============================
 name=SOILCTOP
+        priority=1
+        dest_type=categorical
+        z_dim_name=soil_cat
+        dominant=SCT_DOM
+        interp_option = nearest_neighbor
+        rel_path= default:soiltype_top_30s/
+===============================
+name=SOILCTOP
         priority=2
         dest_type=categorical
         z_dim_name=soil_cat
         dominant=SCT_DOM
         interp_option = wur-landuse:nearest_neighbor
-        wur-landuse:/home/jiska/wrfinput/soiltype_top_wur
-        rel_path= default:soiltype_top_2m/
-===============================
-name=SOILCTOP
-        priority=1
-        dest_type=categorical
-        z_dim_name=soil_cat
-        dominant=SCT_DOM
         interp_option =     30s:nearest_neighbor
         interp_option =      2m:four_pt
         interp_option =      5m:four_pt
@@ -108,6 +108,7 @@ name=SOILCTOP
         rel_path=      5m:soiltype_top_5m/
         rel_path=     10m:soiltype_top_10m/
         rel_path= default:soiltype_top_2m/
+        abs_path= wur-landuse:/home/jiska/wrfinput/soiltype_top_wur
 ===============================
 name=SOILCBOT
         priority=1
