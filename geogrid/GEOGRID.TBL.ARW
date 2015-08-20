@@ -66,7 +66,7 @@ name=LANDUSEF
         rel_path=          5m:landuse_5m/
         rel_path=         10m:landuse_10m/
         rel_path=     default:landuse_30s/
-        abs_path=         wur-landuse:/home/jiska/wrfinput/landuse
+        rel_path=         wur-landuse:wur/landuse
 ===============================
 name=LANDUSEF
         priority=1
@@ -108,7 +108,7 @@ name=SOILCTOP
         rel_path=      5m:soiltype_top_5m/
         rel_path=     10m:soiltype_top_10m/
         rel_path= default:soiltype_top_2m/
-        abs_path= wur-landuse:/home/jiska/wrfinput/soiltype_top_wur
+        rel_path= wur-landuse:wur/soiltype_top_wur
 ===============================
 name=SOILCBOT
         priority=1
@@ -387,7 +387,7 @@ name=URB_PARAM
         fill_missing = 0.
         z_dim_name=num_urb_params
         interp_option=default:average_gcell(4.0)+four_pt+average_4pt
-        abs_path=default:/home/jiska/wrfinput/myurb
+        rel_path=default:wur/myurb
 ===============================
 name=IMPERV
         priority=1
@@ -412,5 +412,5 @@ name=FRC_URB2D
         dest_type=continuous
         fill_missing = 0.
         interp_option=default:average_gcell(1.0)+four_pt
-        abs_path=     default:/home/jiska/wrfinput/urbanfraction
+        rel_path=     default:wur/urbanfraction
 ===============================
