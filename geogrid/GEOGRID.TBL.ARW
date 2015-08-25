@@ -96,7 +96,6 @@ name=SOILCTOP
         priority=2
         dest_type=categorical
         z_dim_name=soil_cat
-        dominant=SCT_DOM
         interp_option = wur-landuse:nearest_neighbor
         interp_option =     30s:nearest_neighbor
         interp_option =      2m:four_pt
