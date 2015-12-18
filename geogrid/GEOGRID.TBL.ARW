@@ -4,8 +4,6 @@
 name = HGT_M
         priority = 1
         dest_type = continuous
-        df_dx=SLPX
-        df_dy=SLPY
         smooth_option = smth-desmth_special; smooth_passes=1
         fill_missing=0.
         interp_option =     30s:average_gcell(4.0)+four_pt+average_4pt
@@ -20,7 +18,7 @@ name = HGT_M
         rel_path= default:topo_2m/
 ===============================
 name=LANDUSEF
-        priority=2
+        priority=1
         dest_type=categorical
         z_dim_name=land_cat
         landmask_water =   modis_15s:17            # Calculate a landmask from this field
@@ -31,7 +29,6 @@ name=LANDUSEF
         landmask_water =nlcd2006_30s:17            # Calculate a landmask from this field
         landmask_water = nlcd2011_9s:17            # Calculate a landmask from this field
         landmask_water =    nlcd2006:17            # Calculate a landmask from this field
-        landmask_water = wur-landuse:16            # Calculate a landmask from this field
         landmask_water =     default:16            # Calculate a landmask from this field
         dominant=LU_INDEX
         interp_option = nlcd2006_9s:average_gcell(0.0)
@@ -48,9 +45,7 @@ name=LANDUSEF
         interp_option =          2m:four_pt
         interp_option =          5m:four_pt
         interp_option =         10m:four_pt
-        interp_option =      default:nearest_neighbor
-        interp_option =        wur-landuse:nearest_neighbor
-	fill_missing = 7
+        interp_option =      default:four_pt
         rel_path= nlcd2006_9s:nlcd2006_ll_9s/
         rel_path=nlcd2006_30s:nlcd2006_ll_30s/
         rel_path= nlcd2011_9s:nlcd2011_ll_9s/
@@ -65,15 +60,6 @@ name=LANDUSEF
         rel_path=          2m:landuse_2m/
         rel_path=          5m:landuse_5m/
         rel_path=         10m:landuse_10m/
-        rel_path=     default:landuse_30s/
-        rel_path=         wur-landuse:wur/landuse
-===============================
-name=LANDUSEF
-        priority=1
-        dest_type=categorical
-        z_dim_name=land_cat
-        landmask_water =     default:16            # Calculate a landmask from this field
-        interp_option =      default:four_pt
         rel_path=     default:landuse_2m/
 ===============================
 name=SOILTEMP
@@ -89,14 +75,6 @@ name=SOILCTOP
         dest_type=categorical
         z_dim_name=soil_cat
         dominant=SCT_DOM
-        interp_option = nearest_neighbor
-        rel_path= default:soiltype_top_30s/
-===============================
-name=SOILCTOP
-        priority=2
-        dest_type=categorical
-        z_dim_name=soil_cat
-        interp_option = wur-landuse:nearest_neighbor
         interp_option =     30s:nearest_neighbor
         interp_option =      2m:four_pt
         interp_option =      5m:four_pt
@@ -107,7 +85,6 @@ name=SOILCTOP
         rel_path=      5m:soiltype_top_5m/
         rel_path=     10m:soiltype_top_10m/
         rel_path= default:soiltype_top_2m/
-        rel_path= wur-landuse:wur/soiltype_top_wur
 ===============================
 name=SOILCBOT
         priority=1
@@ -385,8 +362,8 @@ name=URB_PARAM
         dest_type=continuous
         fill_missing = 0.
         z_dim_name=num_urb_params
-        interp_option=default:average_gcell(4.0)+four_pt+average_4pt
-        rel_path=default:wur/myurb
+        interp_option=default:nearest_neighbor
+        rel_path=default:NUDAPT44_1km/
 ===============================
 name=IMPERV
         priority=1
@@ -405,11 +382,4 @@ name=CANFRA
         masked=water
         fill_missing=0.
         rel_path = default:nlcd2011_can_ll_9s/
-===============================
-name=FRC_URB2D
-        priority=1
-        dest_type=continuous
-        fill_missing = 0.
-        interp_option=default:average_gcell(1.0)+four_pt
-        rel_path=     default:wur/urbanfraction
 ===============================
