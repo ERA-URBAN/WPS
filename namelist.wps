@@ -1,38 +1,34 @@
 &share
- wrf_core = 'ARW',
- max_dom = 4,
- start_date = '2013-08-01_00:00:00','2013-08-01_00:00:00','2013-08-01_00:00:00','2013-08-01_00:00:00',
- end_date   = '2013-08-11_00:00:00','2013-08-11_00:00:00','2013-08-11_00:00:00','2013-08-11_00:00:00',
- interval_seconds = 21600
- io_form_geogrid = 2,
+    wrf_core = 'ARW'
+    max_dom = 2
+    start_date = '2014-07-26_12:00:00', '2014-07-26_12:00:00'
+    end_date = '2014-07-31_00:00:00', '2014-07-31_00:00:00'
+    interval_seconds = 21600
+    io_form_geogrid = 2
 /
-
 &geogrid
- parent_id         =   1,   1,  2, 3	
- parent_grid_ratio =   1,   5,  5, 5	
- i_parent_start    =   1,  48, 50, 55
- j_parent_start    =   1,  48, 51, 55
-
- e_we              =   120, 121, 121, 126 
- e_sn              =   120, 121, 121, 126
- geog_data_res     =    '30s','30s','wur-landuse+30s','wur-landuse+30s'
- dx = 12500,
- dy = 12500,
- map_proj = 'lambert',
- ref_lat   =  51.964716,
- ref_lon   =   5.663308,
- truelat1  =  30.0,
- truelat2  =  60.0,
- stand_lon = 4.55,
- geog_data_path = '/home/wrfdata/geog'
+    parent_id = 0, 1, 2
+    parent_grid_ratio = 1, 5, 5
+    i_parent_start = 1, 44, 51, 45
+    j_parent_start = 1, 52, 48, 48
+    e_we = 120, 121, 121, 176
+    e_sn = 120, 121, 121, 136
+    geog_data_res = '30s', '30s', 'wur-landuse+30s', 'wur-landuse+30s'
+    dx = 12500, 2500, 500
+    dy = 12500, 2500, 500
+    map_proj = 'lambert'
+    ref_lat = 51.964716
+    ref_lon = 5.663308
+    truelat1 = 30.0
+    truelat2 = 60.0
+    stand_lon = 4.55
+    geog_data_path = '/lustre/scratch/WUR/ESG/haren009/WPS_GEOG/'
 /
-
 &ungrib
- out_format = 'WPS',
- prefix = 'FILE',
+    out_format = 'WPS'
+    prefix = 'FILE'
 /
-
 &metgrid
- fg_name = 'FILE'
- io_form_metgrid = 2, 
+    fg_name = 'FILE'
+    io_form_metgrid = 2
 /
