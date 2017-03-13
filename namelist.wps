@@ -1,28 +1,28 @@
 &share
     wrf_core = 'ARW'
-    max_dom = 2
-    start_date = '2014-07-26_12:00:00', '2014-07-26_12:00:00'
-    end_date = '2014-07-31_00:00:00', '2014-07-31_00:00:00'
-    interval_seconds = 21600
+    max_dom = 4
+    start_date = '2014-07-16_02:00:00', '2014-07-16_02:00:00', '2014-07-16_02:00:00'
+    end_date = '2014-07-19_22:00:00', '2014-07-19_22:00:00', '2014-07-19_22:00:00'
+    interval_seconds = 7200
     io_form_geogrid = 2
 /
 &geogrid
     parent_id = 0, 1, 2
     parent_grid_ratio = 1, 5, 5
-    i_parent_start = 1, 44, 51, 45
-    j_parent_start = 1, 52, 48, 48
-    e_we = 120, 121, 121, 176
-    e_sn = 120, 121, 121, 136
+    i_parent_start = 1, 44, 51, 40
+    j_parent_start = 1, 52, 48, 49
+    e_we = 120, 121, 121, 201
+    e_sn = 120, 121, 121, 166
     geog_data_res = '30s', '30s', 'wur-landuse+30s', 'wur-landuse+30s'
-    dx = 12500, 2500, 500
-    dy = 12500, 2500, 500
+    dx = 12500
+    dy = 12500
     map_proj = 'lambert'
     ref_lat = 51.964716
     ref_lon = 5.663308
     truelat1 = 30.0
     truelat2 = 60.0
     stand_lon = 4.55
-    geog_data_path = '/lustre/scratch/WUR/ESG/haren009/WPS_GEOG/'
+    geog_data_path = '/home/haren/build/WPS_GEOG/'
 /
 &ungrib
     out_format = 'WPS'
